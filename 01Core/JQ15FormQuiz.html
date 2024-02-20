@@ -47,6 +47,24 @@
     직접입력을 선택하면 readonly속성을 해제하여 사용자가 직접
     입력할 수 있도록 구현하시오. -->
 
+    <script>
+      $(function () {
+        $('#selectEmail').change(function () {
+          console.log($(this).val(), '선택됨');
+          //<select>에서 선택한 값
+          let choiceVal = $(this).val();
+          if (choiceVal == 'direct') {
+            $('#email2').val('');
+            //사용자 입력을 위해 readnoly 속성을 비활성화 한다.
+            $('#email2').attr('readonly', false);
+          } else {
+            $('#email2').val(choiceVal);
+            //readonly 속성을 활성화 한다.
+            $('#email2').attr('readonly', true);
+          }
+        });
+      });
+    </script>
     <h2>선택상자에서 선택된값을 텍스트상자에 출력하기</h2>
     이메일 : <input type="text" id="email1" style="width: 100px" /> @
     <input type="text" id="email2" style="width: 150px" readonly />
